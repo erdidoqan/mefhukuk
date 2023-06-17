@@ -26,14 +26,27 @@ graphql(`
   }
 `);
 
+graphql(`
+  fragment SiteExtra on SiteExtraRecord {
+    logo {
+      url
+    }
+    universityAddress
+    universityUrl
+  }
+`);
+
 const HomePageQuery = graphql(`
   query HomePage {
-    siteExtra {
-      logo {
-        url
+    _site {
+      faviconMetaTags {
+        tag
+        attributes
+        content
       }
-      universityAddress
-      universityUrl
+    }
+    siteExtra {
+      ...SiteExtra
     }
     homePage {
       _seoMetaTags {
@@ -55,12 +68,12 @@ const HomePageQuery = graphql(`
 `);
 
 export const fetchHomePage = cache(async () => {
-  const { siteExtra, homePage, allJournalIssues } = await request(
+  const { _site, siteExtra, homePage, allJournalIssues } = await request(
     HomePageQuery,
   );
-  if (!siteExtra || !homePage) {
+  if (!_site || !siteExtra || !homePage) {
     notFound();
   }
 
-  return { siteExtra, homePage, allJournalIssues };
+  return { _site, siteExtra, homePage, allJournalIssues };
 });

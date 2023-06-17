@@ -35,14 +35,16 @@ export function HeroSection({ section }: { section: HeroSectionFragment }) {
       />
       <div className="absolute inset-0 bg-[#8969D3]/50 backdrop-blur" />
 
-      <div className="container relative grid grid-cols-2 items-center gap-12 px-4">
+      <div className="container relative grid items-center gap-12 px-4 sm:grid-cols-2">
         <div className="justify-self-start py-24">
-          <div className="text-3xl text-white">{section.caption}</div>
-          <div className="mt-2 text-6xl font-bold text-white">
+          <div className="text-2xl text-white sm:text-3xl">
+            {section.caption}
+          </div>
+          <div className="mt-2 text-4xl font-bold text-white sm:text-6xl">
             {section.title}
           </div>
         </div>
-        <div className="justify-self-end">
+        <div className="hidden justify-self-end sm:block">
           <Image data={section.coverImage.responsiveImage} />
         </div>
       </div>

@@ -19,8 +19,8 @@ graphql(`
 
 export function JournalInfo({ content }: { content: JournalInfoFragment }) {
   return (
-    <div className="container grid grid-cols-3 items-start px-4 py-6">
-      <div className="col-span-2">
+    <div className="container grid items-start gap-4 px-4 py-6 lg:grid-cols-3">
+      <div className="lg:col-span-2">
         <StructuredTextContent
           data={{
             ...content.content,

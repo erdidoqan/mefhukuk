@@ -24,7 +24,7 @@ export function EditorialBoard({
 }) {
   return (
     <div className="container px-4 py-6">
-      <div className="grid grid-flow-col gap-8 py-6">
+      <div className="grid gap-8 py-6 lg:grid-flow-col">
         {content.columns.map((column) => (
           <div key={column.id} className="text-center">
             <StructuredTextContent

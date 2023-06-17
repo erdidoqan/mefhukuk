@@ -31,7 +31,7 @@ export async function IssueGallery() {
 
   return (
     <div className="container px-4 py-6">
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
         {allJournalIssues.map((issue) => (
           <div key={issue.id}>
             <div className="relative">
