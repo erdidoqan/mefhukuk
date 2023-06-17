@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { graphql } from "@/gql";
 import { Image } from "react-datocms/image";
 
@@ -15,6 +16,7 @@ graphql(`
     allJournalIssues {
       id
       name
+      url
       image {
         responsiveImage(
           imgixParams: { w: 340, h: 500, fit: crop, auto: format }
@@ -34,14 +36,14 @@ export async function IssueGallery() {
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
         {allJournalIssues.map((issue) => (
           <div key={issue.id}>
-            <div className="relative">
+            <Link href={issue.url} target="_blank" className="relative">
               <Image data={issue.image.responsiveImage} className="invisible" />
               <Image
                 data={issue.image.responsiveImage}
                 layout="fill"
                 objectFit="cover"
               />
-            </div>
+            </Link>
             <div className="mt-4 text-center text-xl text-gray-600">
               {issue.name}
             </div>
