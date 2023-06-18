@@ -60,7 +60,7 @@ function HomeSectionContent({
     }
     case "StructuredTextBlockRecord": {
       return (
-        <div className="container px-4 py-6 prose-a:bg-red-500 prose-a:px-4 prose-a:py-3 prose-a:text-sm prose-a:text-white prose-a:no-underline hover:prose-a:!text-white">
+        <div className="container px-4 py-6">
           <StructuredTextContent
             data={{
               ...content.structuredText,
