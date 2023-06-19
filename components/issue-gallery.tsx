@@ -36,7 +36,7 @@ export async function IssueGallery() {
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
         {allJournalIssues.map((issue) => (
           <div key={issue.id}>
-            <Link href={issue.url} target="_blank" className="relative">
+            <Link href={issue.url} target="_blank" className="relative block">
               <Image data={issue.image.responsiveImage} className="invisible" />
               <Image
                 data={issue.image.responsiveImage}
